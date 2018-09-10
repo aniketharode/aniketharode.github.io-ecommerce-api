@@ -1,0 +1,600 @@
+define({ "api": [
+  {
+    "type": "post",
+    "url": "/api/v1/eCommerce/addToCart/:productId/:flag",
+    "title": "add product to cart",
+    "version": "0.0.1",
+    "group": "create",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>The productId should be passed as the URL parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "flag",
+            "description": "<p>The flag should have the value of 0 and be passed as the URL parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken as query parameter, body parameter or as a header)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product is added to cart Successfully\",\n\t    \"status\": 200,\n\t    \"data\": [\n\t\t\t{\n\t    \t\t\t\"productName\": String,\n                                \"cartPrice\": Number,\n                                \"cartQuantity\": Number,\n                                \"_id\": String,\n                                \"productId\": String,\n                                \"__v\": Number\n\t\t\t}\n\t\t    ]\n\t    \t}\n\t    }\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n             \"error\": true,\n             \"message\": \"Error occured while creating the cart product\",\n             \"status\": 500,\n             \"data\": null\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "create",
+    "name": "PostApiV1EcommerceAddtocartProductidFlag"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/eCommerce/createProduct",
+    "title": "Create Product",
+    "version": "0.0.1",
+    "group": "create",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken as query parameter, body parameter or as a header)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productName",
+            "description": "<p>productName of the product passed as a body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product passed as a body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "price",
+            "description": "<p>price of the product passed as a body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "category",
+            "description": "<p>category of the product passed as a body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "image",
+            "description": "<p>image of the product passed as a body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "quantityAvailable",
+            "description": "<p>quantityAvailable of the product passed as a body parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n\t    \"error\": false,\n\t    \"message\": \"created the product\",\n\t    \"status\": 200,\n\t    \"data\": [\n\t\t     {\n\t\t\tproductName: String,\n                        price: Number,\n                        description: String,\n                        image: String,\n                        category: String,\n                        quantityAvailable: Number,\n                        _id: String,\n                        productId: String,\n\t\t\t__v: number\n\t\t\t\t\t\t\n\t\t\t}\n\n\t    \t     ]\n\t     }\n\t}\n\t\t\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n  \"error\": true,\n  \"message\": \"Error Occured.,\n  \"status\": 500,\n  \"data\": null\n\t   \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "create",
+    "name": "PostApiV1EcommerceCreateproduct"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/eCommerce/deleteCartProduct/:productId",
+    "title": "Delete cart product",
+    "version": "0.0.1",
+    "group": "delete",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken as query parameter, body parameter or as a header)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>The productId should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n            \"message\": \"CartProduct removed  successfully.\",\n            \"status\": 200,\n            \"data\": [\n\t\t\t{\n                             \"productName\": String,\n                             \"cartPrice\": Number,\n                             \"cartQuantity\": Number,\n                             \"_id\": String,\n                             \"productId\": String,\n                             \"__v\": Number\n\t\t\t}\n\t\t     ]\n\t    \t}\n\t    }\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "delete",
+    "name": "PostApiV1EcommerceDeletecartproductProductid"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/eCommerce/deleteProduct/:productId",
+    "title": "Delete the product as well the product from carts if avilable",
+    "version": "0.0.1",
+    "group": "delete",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>The productId should be passed as the URL parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken as query parameter, body parameter or as a header)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t       \"error\": false,\n\t       \"message\": \"Product removed Successfully.\",\n\t       \"status\": 200,\n\t       \"data\": {\n\n\t    \t         \"productName\": String,\n                         \"price\": Number,\n                         \"description\": String,\n                         \"image\": String,\n                         \"category\": String,\n                         \"quantityAvailable\": Number,\n                         \"_id\": String,\n                         \"productId\": String,\n\t\t         __v: number\n\t\t\t\t\t \n\t\t\t }\n\t    \t}\n\t    }\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "delete",
+    "name": "PostApiV1EcommerceDeleteproductProductid"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/eCommerce/buyProduct/:productId",
+    "title": "Buy the product if the product is present in carts collections and decreses the product quantity in product collections",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>The productId should be passed as the URL parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken as query parameter, body parameter or as a header)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product Buyed Successfully.\",\n\t    \"status\": 200,\n\t    \"data\": [\n                          {\n\t    \t\t\t\"productName\": String,\n                                \"price\": Number,\n                                \"description\": String,\n                                \"image\": String,\n                                \"category\": String,\n                                \"quantityAvailable\": Number,\n                                \"_id\": String,\n                                \"productId\": String,\n                                __v: number\n\t\t\t   }\n                     ]\n\t    \t}\n\t    }\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1EcommerceBuyproductProductid"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/eCommerce/decreaseCartPrice/:productId",
+    "title": "Get a single cart product with decreased qantity",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>The productId should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n            \"message\": \"CartPrice and quantity edited Successfully.\",\n            \"status\": 200,\n            \"data\": {\n                      \"productName\": String,\n                      \"cartPrice\": Number,\n                      \"cartQuantity\": Number,\n                      \"_id\": String,\n                      \"productId\": String,\n                      \"__v\": Number\n                    }\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1EcommerceDecreasecartpriceProductid"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/eCommerce/editProduct/:productId",
+    "title": "Edit a product",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>The productId should be passed as the URL parameter and these will automatically updated the product if present in carts</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken as query parameter, body parameter or as a header)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product Edited Successfully.\",\n\t    \"status\": 200,\n\t    \"data\": {\n\n\t    \t     \"productName\": String,\n                     \"price\": Number,\n                     \"description\": String,\n                     \"image\": String,\n                     \"category\": String,\n                     \"quantityAvailable\": Number,\n                     \"_id\": String,\n                     \"productId\": String,\n\t\t     __v: number\n\t\t\t\t\t \n\t\t     }\n\t    \t}\n\t    }\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1EcommerceEditproductProductid"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/eCommerce/increseCartPrice/:productId",
+    "title": "Get a single cart product with increased qantity",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>The productId should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n            \"message\": \"CartPrice and quantity edited Successfully.\",\n            \"status\": 200,\n            \"data\": {\n                      \"productName\": String,\n                      \"cartPrice\": Number,\n                      \"cartQuantity\": Number,\n                      \"_id\": String,\n                      \"productId\": String,\n                      \"__v\": Number\n                    }\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1EcommerceIncresecartpriceProductid"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/eCommerce/getAllCartsProduct",
+    "title": "Get all cart product",
+    "version": "0.0.1",
+    "group": "read",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n            \"message\": \"CartProduct found  Successfully.\",\n            \"status\": 200,\n            \"data\": {\n                      \"productName\": String,\n                      \"cartPrice\": Number,\n                      \"cartQuantity\": Number,\n                      \"_id\": String,\n                      \"productId\": String,\n                      \"__v\": Number\n                    }\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "read",
+    "name": "GetApiV1EcommerceGetallcartsproduct"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/eCommerce/getAllProduct",
+    "title": "Get all products",
+    "version": "0.0.1",
+    "group": "read",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n\t    \"error\": false,\n\t    \"message\": \"All Product Details Found\",\n\t    \"status\": 200,\n\t    \"data\": [\n\t\t\t{\n\t\t\t\t\"productName\": String,\n                                \"price\": Number,\n                                \"description\": String,\n                                \"image\": String,\n                                \"category\": String,\n                                \"quantityAvailable\": Number,\n                                \"_id\": String,\n                                \"productId\": String,\n                                __v: number\n\t\t\t}\n\t    \t    ]\n\t    \t}\n\t    }\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Failed To Find Product Details\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "read",
+    "name": "GetApiV1EcommerceGetallproduct"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/eCommerce/getProduct/:productId/:flag",
+    "title": "Get a single product",
+    "version": "0.0.1",
+    "group": "read",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "flag",
+            "description": "<p>The flag of value 1 should be passed as the URL parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>The productId should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product Found Successfully.\",\n\t    \"status\": 200,\n\t    \"data\": [\n                     {\n\n\t    \t     \"productName\": String,\n                     \"price\": Number,\n                     \"description\": String,\n                     \"image\": String,\n                     \"category\": String,\n                     \"quantityAvailable\": Number,\n                     \"_id\": String,\n                     \"productId\": String,\n\t\t      __v: number\n\t\t\t\t\t \n\t\t     }\n                    ]\n                  \n\t    \t}\n\t    }\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "read",
+    "name": "GetApiV1EcommerceGetproductProductidFlag"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/eCommerce/viewByProductCategory/:category",
+    "title": "Get a single product by category",
+    "version": "0.0.1",
+    "group": "read",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "category",
+            "description": "<p>The category should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product Found Successfully.\",\n\t    \"status\": 200,\n\t    \"data\": {\n\t    \t     \"productName\": String,\n                     \"price\": Number,\n                     \"description\": String,\n                     \"image\": String,\n                     \"category\": String,\n                     \"quantityAvailable\": Number,\n                     \"_id\": String,\n                     \"productId\": String,\n                     __v: number\n\t\t     }\n\t    \t}\n\t    }\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "read",
+    "name": "GetApiV1EcommerceViewbyproductcategoryCategory"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/eCommerce/viewByProductName/:productName",
+    "title": "Get a single product by name",
+    "version": "0.0.1",
+    "group": "read",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productName",
+            "description": "<p>The productName should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product Found Successfully.\",\n\t    \"status\": 200,\n\t    \"data\": {\n\t    \t\t\"productName\": String,\n                        \"price\": Number,\n                        \"description\": String,\n                        \"image\": String,\n                        \"category\": String,\n                        \"quantityAvailable\": Number,\n                        \"_id\": String,\n                        \"productId\": String,\n                        __v: number\n\t\t     }\n\t    \t}\n\t    }\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/eroutes.js",
+    "groupTitle": "read",
+    "name": "GetApiV1EcommerceViewbyproductnameProductname"
+  }
+] });
