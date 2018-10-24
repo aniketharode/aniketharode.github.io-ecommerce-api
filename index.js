@@ -7,7 +7,7 @@ const handler = require('./middleware/appErrorHandlers');
 const routeLogger = require('./middleware/routeLogger');
 const helmet = require('helmet');
 const http = require('http');
-const logger = require('./libs/loggerlib');
+const logger = require('./libs/loggerLib');
 //const controller = require('./controllers/eController');
 
 const app = express();
