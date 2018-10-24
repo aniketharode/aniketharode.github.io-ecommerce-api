@@ -1,5 +1,5 @@
 let logger = require("../libs/loggerLib");
-let response = require("../libs/responseLib");
+let response = require("../libs/responselib");
 
 
 let isAuthenticated = (req,res,next) => {
